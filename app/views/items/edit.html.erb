@@ -1,0 +1,14 @@
+<h1 class = "text-center mt-5">Editing item</h1>
+<div class ="container text-center">
+  <%= render "form", item: @item %>
+</div>
+<br>
+<% if session[:status] == "item" %>
+  <% url = items_path%>
+<%else%>
+  <% url = main_user_item_path%>
+<%end%>
+<div class = "text-center">
+  <%= link_to "Show this item", @items %> |
+  <%= link_to "Back to items", url %>
+</div>

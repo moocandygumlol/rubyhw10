@@ -1,0 +1,26 @@
+<div class = "container">
+    <h1 class = "mb-3 mt-3">User Item: <%=@u.name%></h1>
+    <div class = "mb-3"><%=link_to "new", controller: "items", action:"new",id: @u.id%></div>
+    <table class = "table text-center table-striped table-bordered">
+        <thead class = "table-dark">
+            <tr>
+                <td>Name</td>
+                <td>Price</td>
+                <td>Stock</td>
+                <td>Edit</td>
+                <td>Delete</td>
+            </tr>
+        </thead>
+        <tbody>
+            <% for x in @u.item do%>
+                <tr>
+                    <td><%= x.name%></td>
+                    <td><%= x.price%></td>
+                    <td><%= x.stock%></td>
+                    <td><%= link_to "Edit", edit_item_path(x), class: "btn btn-warning text-white"%></td>
+                    <td><%= button_to "delete", x, method: :delete, class: "btn btn-danger"%></td>
+                </tr>
+            <%end%>
+        </tbody>
+    </table>
+</div>

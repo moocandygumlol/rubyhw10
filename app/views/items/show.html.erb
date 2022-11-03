@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @item %>
+
+<% if session[:status] == "item" %>
+  <% url = items_path%>
+<%else%>
+  <% url = main_user_item_path%>
+<%end%>
+<div>
+  <%= link_to "Edit this item", edit_item_path(@item) %> |
+  <%= link_to "Back to items", url%>
+
+  <%= button_to "Destroy this item", @item, method: :delete %>
+</div>

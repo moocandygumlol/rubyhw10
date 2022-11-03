@@ -1,0 +1,21 @@
+<div class = "container">
+    <h1>Inventories</h1>
+    <% x = User.where(id: @u).first%>
+    <h3>name : <%= x.name%></h3>
+    <table class = "table text-center table-striped table-bordered">
+        <tr class = "table-dark">
+            <td>Item Name</td>
+            <td>Item Price</td>
+            <td>Seller Name</td>
+            <td>Time</td>
+        <tr>
+        <%for e in x.inventory do%>
+            <tr>
+                <td><%= e.item.name%></td>
+                <td><%= e.price%></td>
+                <td><%= e.user.name%></td>
+                <td><%= e.timestamp%></td>
+            <tr>
+        <%end%>    
+    </table>
+</div>

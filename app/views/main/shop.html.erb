@@ -1,0 +1,25 @@
+<div class = "container">
+    <h1>Welcome to my shop</h1>
+    <table class = "table text-center table-striped table-bordered">
+        <div>Name : <%= @u.name %></div>
+        <% x = @u.item%>
+        <tr class = "table-dark">
+                <td>Item name</td>
+                <td>Price</td>
+                <td>Stock</td>
+                <% if session[:logged_in]%>
+                    <td>Buy</td>
+                <% end %>
+            </tr>
+        <% for y in x do%>
+            <tr>
+                <td><%=y.name%></td>
+                <td><%=y.price%></td>
+                <td><%=y.stock%></td>
+                <% if session[:logged_in]%>
+                    <td><%= button_to "Buy" , controller: "main", action: "buy",item_id: y.id, item_price: y.price, user_id: y.user_id %></td>
+                <% end %>
+            </tr>
+        <% end %> 
+    </table>
+</div>
